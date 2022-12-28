@@ -1,29 +1,7 @@
-# hb-seawolf
+/*
+ *
+ */
 
-Harbour module implementing bindings, playground with graphics, with the use of [OpenGL](https://www.khronos.org/opengl) and [GLFW](https://www.glfw.org/)
-
-### Getting Started
-
-For more info see [getting started](examples/README.md).
-
-## Building
-
-- Build static library:
-
-   ```
-   hbmk2 hbseawolf.hbp
-   ```
-
-- Build and run sample and test code:
-
-   ```
-   hbmk2 main.prg
-   ./main
-   ```
-
-### Examples
-
-``` harbour
 #include "hbseawolf.ch"
 
 PROCEDURE Main()
@@ -60,7 +38,4 @@ PROCEDURE Main()
    sw_CloseWindow( w )
 
 RETURN
-```
-
-![This is an image](examples/main/main.png)
 

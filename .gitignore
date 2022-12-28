@@ -1,0 +1,9 @@
+
+# hb-seawolf
+*.exe
+*.bak
+*.hbx
+*.log
+lib
+tmp
+extras

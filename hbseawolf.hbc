@@ -1,0 +1,11 @@
+description=The Sea Wolf
+
+incpaths=include
+headers=include/${hb_name}.ch
+
+libpaths=lib/${hb_plat}/${hb_comp}
+
+libs=${_HB_DYNPREF}${hb_name}${_HB_DYNSUFF}
+
+{win}libs=glfw3 opengl32
+{linux}libs=glfw GL
