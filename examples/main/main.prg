@@ -12,7 +12,7 @@ PROCEDURE Main()
    LOCAL i
    LOCAL n := 46, radius := 100
 
-   w := sw_CreateWindow( 820, 450, text )
+   w := sw_CreateWindow( 830, 450, text )
 
    WHILE( ! sw_MainLoop( w ) .AND. ! sw_GetKey( w, KEY_ESCAPE ) )
 
