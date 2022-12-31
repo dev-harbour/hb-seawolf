@@ -186,8 +186,10 @@ HB_FUNC( SW_CREATEWINDOW )
    }
    else
    {
-      HB_ERR_ARGS();
+      hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_CreateWindow", 3, hb_paramError( 1 ), hb_paramError( 2 ), hb_paramError( 3 ) );
    }
+
+   "Expected a string argument"
 }
 
 //bool sw_MainLoop( pSeaWolf w )
@@ -204,7 +206,7 @@ HB_FUNC( SW_MAINLOOP )
    }
    else
    {
-      HB_ERR_ARGS();
+      hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_MainLoop", 1, hb_paramError( 1 ) );
    }
 }
 
@@ -223,7 +225,7 @@ HB_FUNC( SW_CLOSEWINDOW )
    }
    else
    {
-      HB_ERR_ARGS();
+      hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_CloseWindow", 1, hb_paramError( 1 ) );
    }
 }
 
@@ -255,7 +257,7 @@ HB_FUNC( BEGIN_DRAWING )
    }
    else
    {
-      HB_ERR_ARGS();
+      hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_Begin", 1, hb_paramError( 1 ) );
    }
 }
 
@@ -270,7 +272,7 @@ HB_FUNC( END_DRAWING )
    }
    else
    {
-      HB_ERR_ARGS();
+      hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_End", 1, hb_paramError( 1 ) );
    }
 }
 
@@ -297,7 +299,7 @@ HB_FUNC( OPENGL_FUNCTIONS )
 
       hex_to_Color3f( par3 );
       glBegin( GL_POINTS );
-      glVertex2i( par1, par2 );
+      glVertex2f( par1, par2 +1 );
       glEnd();
       break;
 
@@ -306,7 +308,7 @@ HB_FUNC( OPENGL_FUNCTIONS )
       hex_to_Color3f( par4 );
       glPointSize( par3 );
       glBegin( GL_POINTS );
-      glVertex2i( par1, par2 );
+      glVertex2f( par1, par2 +1 );
       glEnd();
       break;
 
@@ -314,8 +316,19 @@ HB_FUNC( OPENGL_FUNCTIONS )
 
       hex_to_Color3f( par5 );
       glBegin( GL_LINES );
-      glVertex2i( par1, par2 );
-      glVertex2i( par3, par4 );
+      glVertex2f( par1, par2 );
+      glVertex2f( par3 +1, par4 +1 );
+      glEnd();
+      break;
+
+   case OPENGL_FILLRECT:
+
+      hex_to_Color3f( par5 );
+      glBegin( GL_POLYGON );
+      glVertex2f( par1, par2 );
+      glVertex2f( par3, par2 );
+      glVertex2f( par3, par4 );
+      glVertex2f( par1, par4 );
       glEnd();
       break;
 
