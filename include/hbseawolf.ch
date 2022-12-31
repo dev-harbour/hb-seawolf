@@ -141,6 +141,7 @@
 #define OPENGL_POINT           2
 #define OPENGL_POINT_SIZE      3
 #define OPENGL_LINES           4
+#define OPENGL_FILLRECT        5
 
 #define TEXT_FONT              1
 #define TEXT_DISPOUTAT         2
@@ -161,10 +162,11 @@
 #define sw_Begin( w ) begin_drawing( w )
 #define sw_End( w )   end_drawing( w )
 //---
-#define sw_Background( w, hexColor )            opengl_functions( w, OPENGL_BACKGROUND, hexColor )
-#define sw_Point( w, x, y, hexColor )           opengl_functions( w, OPENGL_POINT, x, y +1, hexColor )
-#define sw_PointSize( w, x, y, size, hexColor ) opengl_functions( w, OPENGL_POINT_SIZE, x, y +1, size, hexColor )
-#define sw_Lines( w, x1, y1, x2, y2, hexColor ) opengl_functions( w, OPENGL_LINES, x1, y1, x2, y2, hexColor )
+#define sw_Background( w, hexColor )               opengl_functions( w, OPENGL_BACKGROUND, hexColor )
+#define sw_Point( w, x, y, hexColor )              opengl_functions( w, OPENGL_POINT, x, y, hexColor )
+#define sw_PointSize( w, x, y, size, hexColor )    opengl_functions( w, OPENGL_POINT_SIZE, x, y, size, hexColor )
+#define sw_Lines( w, x1, y1, x2, y2, hexColor )    opengl_functions( w, OPENGL_LINES, x1, y1, x2, y2, hexColor )
+#define sw_FillRect( w, x1, y1, x2, y2, hexColor ) opengl_functions( w, OPENGL_FILLRECT, x1, y1, x2, y2, hexColor )
 //---
 #define sw_OpenFont( w, fileName )                  text_functions( w, TEXT_FONT, fileName )
 #define sw_DispOutAt( w, text, col, row, hexColor ) text_functions( w, TEXT_DISPOUTAT, text, col, row, hexColor )
