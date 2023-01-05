@@ -453,13 +453,83 @@ HB_FUNC( GLFW_FUNCTIONS )
 }
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 /* Trigonometric functions */
-// ACOS()
-// ASIN()
-// ATAN()
-// ATN2()
-// CEILING()
+// Acos()
+HB_FUNC( ACOS )
+{
+   PHB_ITEM pItem;
 
-// COS()
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( acos( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Acos()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Asin()
+HB_FUNC( ASIN )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( asin( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Asin()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Atan()
+HB_FUNC( ATAN )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( atan( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Atan()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Atan2()
+HB_FUNC( ATAN2 )
+{
+   PHB_ITEM pItem1;
+   PHB_ITEM pItem2;
+
+   if( ( pItem1 = hb_param( 1, HB_IT_NUMERIC ) ) != NULL && ( pItem2 = hb_param( 2, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( atan2( hb_itemGetND( pItem1 ), hb_itemGetND( pItem2 ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Atan2()", 2, hb_paramError( 1 ), hb_paramError( 2 ) );
+   }
+}
+
+// Ceil()
+HB_FUNC( CEIL )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retni( ceil( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Ceil()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Cos()
 HB_FUNC( COS )
 {
    PHB_ITEM pItem;
@@ -474,23 +544,98 @@ HB_FUNC( COS )
    }
 }
 
-// COT()
-// DTOR()
-// FACT()
-// FLOOR()
-// FV()
-// GETPREC()
-// LOG10()
-// PAYMENT()
-// PERIODS()
-// PI()
-// PV()
-// RATE()
-// RTOD()
-// SETPREC()
-// SIGN()
+// Cosh()
+HB_FUNC( COSH )
+{
+   PHB_ITEM pItem;
 
-// SIN()
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( cosh( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Cosh()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Exp()
+HB_FUNC( EXP )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( exp( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Exp()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Floor()
+HB_FUNC( FLOOR )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( floor( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Floor()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Log()
+HB_FUNC( LOG )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( log( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Log()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Log10()
+HB_FUNC( LOG10 )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( log10( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Log10()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Pow()
+HB_FUNC( POW )
+{
+   PHB_ITEM pItem1;
+   PHB_ITEM pItem2;
+
+   if( ( pItem1 = hb_param( 1, HB_IT_NUMERIC ) ) != NULL && ( pItem2 = hb_param( 2, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( pow( hb_itemGetND( pItem1 ), hb_itemGetND( pItem2 ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Pow()", 2, hb_paramError( 1 ), hb_paramError( 2 ) );
+   }
+}
+
+// Sin()
 HB_FUNC( SIN )
 {
    PHB_ITEM pItem;
@@ -505,4 +650,68 @@ HB_FUNC( SIN )
    }
 }
 
-// TAN()
+// Sinh()
+HB_FUNC( SINH )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( sinh( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Sinh()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Sqrt();
+HB_FUNC( SQRT )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( sqrt( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Sqrt()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Tan()
+HB_FUNC( TAN )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( tan( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Tan()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Tanh()
+HB_FUNC( TANH )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( tanh( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Tanh()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// Pi()
+HB_FUNC( PI )
+{
+   hb_retnd( M_PI );
+}
