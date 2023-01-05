@@ -146,16 +146,17 @@
 #define TEXT_FONT              1
 #define TEXT_DISPOUTAT         2
 
-#define GLFW_GET_KEY           1
-#define GLFW_GET_MOUSEBUTTON   2
-#define GLFW_WIN_WIDTH         3
-#define GLFW_WIN_HEIGHT        4
-#define GLFW_WIN_MAXCOL        5
-#define GLFW_WIN_MAXROW        6
-#define GLFW_WIN_MAXIMIZED     7
-#define GLFW_POLLEVENTS        8
-#define GLFW_WAITEVENTS        9
-#define GLFW_WAITEVENTSTIMEOUT 10
+#define GLFW_KEYBOARD          1
+#define GLFW_GET_KEY           2
+#define GLFW_GET_MOUSEBUTTON   3
+#define GLFW_WIN_WIDTH         4
+#define GLFW_WIN_HEIGHT        5
+#define GLFW_WIN_MAXCOL        6
+#define GLFW_WIN_MAXROW        7
+#define GLFW_WIN_MAXIMIZED     8
+#define GLFW_POLLEVENTS        9
+#define GLFW_WAITEVENTS        10
+#define GLFW_WAITEVENTSTIMEOUT 11
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 // macros
@@ -171,6 +172,7 @@
 #define sw_OpenFont( w, fileName )                  text_functions( w, TEXT_FONT, fileName )
 #define sw_DispOutAt( w, text, col, row, hexColor ) text_functions( w, TEXT_DISPOUTAT, text, col, row, hexColor )
 //---
+#define sw_Keyboard( w )                   glfw_functions( w, GLFW_KEYBOARD )
 #define sw_GetKey( w, key )                glfw_functions( w, GLFW_GET_KEY, key )
 #define sw_GetMouseButton( w, button )     glfw_functions( w, GLFW_GET_MOUSEBUTTON, button )
 #define sw_WinWidth( w )                   glfw_functions( w, GLFW_WIN_WIDTH )
