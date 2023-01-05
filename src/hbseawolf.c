@@ -188,8 +188,6 @@ HB_FUNC( SW_CREATEWINDOW )
    {
       hb_errRT_BASE( EG_ARG, 2023, NULL, "sw_CreateWindow", 3, hb_paramError( 1 ), hb_paramError( 2 ), hb_paramError( 3 ) );
    }
-
-   "Expected a string argument"
 }
 
 //bool sw_MainLoop( pSeaWolf w )
@@ -379,6 +377,15 @@ HB_FUNC( GLFW_FUNCTIONS )
 
    switch( type )
    {
+
+   case GLFW_KEYBOARD:
+
+      if( w->keyAction != GLFW_PRESS )
+      break;;
+
+      ret = w->keyKey;
+      break;
+
    case GLFW_GET_KEY:
 
       ret = ( w->keyKey == par1 ) == GLFW_PRESS ? T : F;
@@ -445,3 +452,57 @@ HB_FUNC( GLFW_FUNCTIONS )
    }
 }
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* Trigonometric functions */
+// ACOS()
+// ASIN()
+// ATAN()
+// ATN2()
+// CEILING()
+
+// COS()
+HB_FUNC( COS )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( cos( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Cos()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// COT()
+// DTOR()
+// FACT()
+// FLOOR()
+// FV()
+// GETPREC()
+// LOG10()
+// PAYMENT()
+// PERIODS()
+// PI()
+// PV()
+// RATE()
+// RTOD()
+// SETPREC()
+// SIGN()
+
+// SIN()
+HB_FUNC( SIN )
+{
+   PHB_ITEM pItem;
+
+   if( ( pItem = hb_param( 1, HB_IT_NUMERIC ) ) != NULL )
+   {
+      hb_retnd( sin( hb_itemGetND( pItem ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 2023, "Expected a numeric argument", "Sin()", 1, hb_paramError( 1 ) );
+   }
+}
+
+// TAN()
