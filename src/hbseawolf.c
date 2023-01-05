@@ -150,7 +150,11 @@ static void hex_to_Color3f( uint32_t hexColor )
 //pSeaWolf sw_CreateWindow( int width, int height, const char *title )
 HB_FUNC( SW_CREATEWINDOW )
 {
-   if( hb_param( 1, HB_IT_NUMERIC ) != NULL && hb_param( 2, HB_IT_NUMERIC ) != NULL &&  hb_param( 3, HB_IT_STRING ) != NULL )
+   PHB_ITEM pItem1;
+   PHB_ITEM pItem2;
+   PHB_ITEM pItem3;
+
+   if( ( pItem1 = hb_param( 1, HB_IT_NUMERIC ) ) != NULL && ( pItem2 = hb_param( 2, HB_IT_NUMERIC ) )!= NULL && ( pItem3 = hb_param( 3, HB_IT_STRING ) ) != NULL )
    {
       pSeaWolf w;
 
@@ -161,9 +165,9 @@ HB_FUNC( SW_CREATEWINDOW )
 
       w = calloc( 1, sizeof( SeaWolf ) );
 
-      w->width  = hb_parni( 1 );
-      w->height = hb_parni( 2 );
-      w->title  = hb_parc( 3 );
+      w->width  = hb_itemGetNI( pItem1 );
+      w->height = hb_itemGetNI( pItem2 );
+      w->title  = hb_itemGetC( pItem3 );
 
       w->window = glfwCreateWindow( w->width, w->height, w->title, NULL, NULL );
       if( ! w->window )
@@ -190,7 +194,7 @@ HB_FUNC( SW_CREATEWINDOW )
    }
 }
 
-//bool sw_MainLoop( pSeaWolf w )
+// bool sw_MainLoop( pSeaWolf w )
 HB_FUNC( SW_MAINLOOP )
 {
    SeaWolf *w = hb_SeaWolf_Param( 1 );
@@ -336,7 +340,7 @@ HB_FUNC( OPENGL_FUNCTIONS )
    hb_retni( ret );
 }
 
-//int text_functions( pSeaWolf w, iText type, const char *par1, int par2, int par3, int par4 )
+// int text_functions( pSeaWolf w, iText type, const char *par1, int par2, int par3, int par4 )
 HB_FUNC( TEXT_FUNCTIONS )
 {
    SeaWolf *w = hb_SeaWolf_Param( 1 );
